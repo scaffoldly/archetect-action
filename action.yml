@@ -36,6 +36,6 @@ runs:
       run: |
         set -x
         ls -al
-        echo "Rendering..."
+        echo "Rendering... [Source: ${{ inputs.source }}, Destination: ${{ inputs.destination }}, Options: ${{ inputs.options }}]"
         ./archetect render ${{ inputs.source }} ${{ inputs.options }} -- ${{ inputs.destination }}
       shell: bash
