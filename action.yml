@@ -16,10 +16,11 @@ inputs:
   destination:
     description: The destination of the rendered output
     required: false
-    default: "" 
+    default: "." 
   options:
     description: Additional command-line options for the archetect command (e.g. -a, -A, -s)
     required: false
+    default: ""
 runs:
   using: "composite"
   steps:
