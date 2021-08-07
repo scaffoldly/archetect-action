@@ -39,5 +39,5 @@ runs:
         set -x
         ls -al ${{ runner.temp }}
         echo "Rendering... [Source: ${{ inputs.source }}, Destination: ${{ inputs.destination }}, Options: ${{ inputs.options }}]"
-        ./${{ runner.temp }}/archetect render ${{ inputs.source }} ${{ inputs.options }} -- ${{ inputs.destination }}
+        ./${{ runner.temp }}/archetect render ${{ inputs.source }} --verbose ${{ inputs.options }} -- ${{ inputs.destination }}
       shell: bash
