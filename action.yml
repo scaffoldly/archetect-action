@@ -1,0 +1,35 @@
+name: "Archetect Render Action"
+description: "GitHub Action to render using Archetect https://github.com/archetect/archetect"
+inputs:
+  archetect-version:
+    description: The Archetect version (https://github.com/archetect/archetect/releases)
+    required: false
+    default: "v0.6.1"
+  archetect-os:
+    description: The OS for the compiled Archetect binary [linux-x64, windows-x64, osx-x64]
+    required: false
+    default: linux-x64
+  source:
+    description: The source directory containing archetype.yml
+    required: false
+    default: .archetect
+  destination:
+    description: The destination of the rendered output
+    required: false
+    default: .
+  options:
+    description: Additional command-line options for the archetect command (e.g. -a, -A, -s)
+    required: false
+runs:
+  using: "composite"
+  steps:
+    - id: install-binary
+      run: |
+        curl -LO https://github.com/archetect/archetect/releases/download/${{ inputs.archetect-version }}/archetect_${{ inputs.archetect-version }}_linux-${{ inputs.archetect-os }}.tar.gz
+        tar -xvzf ./archetect_${{ inputs.archetect-version }}_linux-${{ inputs.archetect-os }}.tar.gz
+        mv ./archetect_${{ inputs.archetect-version }}_linux-${{ inputs.archetect-os }}/archetect .
+      shell: bash
+    - id: archetect-render
+      run: |
+        archetect render ${{ inputs.source }} ${{ inputs.options }} -- ${{ inputs.destination }}
+      shell: bash
