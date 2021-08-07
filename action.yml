@@ -25,7 +25,9 @@ runs:
   steps:
     - id: install-binary
       run: |
+        set -x
         curl -LO https://github.com/archetect/archetect/releases/download/${{ inputs.archetect-version }}/archetect_${{ inputs.archetect-version }}_linux-${{ inputs.archetect-os }}.tar.gz
+        ls -al
         tar -xvzf ./archetect_${{ inputs.archetect-version }}_linux-${{ inputs.archetect-os }}.tar.gz
         mv ./archetect_${{ inputs.archetect-version }}_linux-${{ inputs.archetect-os }}/archetect .
       shell: bash
