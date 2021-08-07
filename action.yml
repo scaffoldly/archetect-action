@@ -12,11 +12,11 @@ inputs:
   source:
     description: The source directory containing archetype.yml
     required: false
-    default: .archetect
+    default: ".archetect"
   destination:
     description: The destination of the rendered output
     required: false
-    default: .
+    default: "" 
   options:
     description: Additional command-line options for the archetect command (e.g. -a, -A, -s)
     required: false
@@ -26,13 +26,15 @@ runs:
     - id: install-binary
       run: |
         echo "Downloading Archetect from GitHub..."
-        curl -LO https://github.com/archetect/archetect/releases/download/${{ inputs.archetect-version }}/archetect_${{ inputs.archetect-version }}_${{ inputs.archetect-os }}.tar.gz
+        curl -LO https://github.com/archetect/archetect/releases/download/${{ inputs.archetect-version }}/archetect_${{ inputs.archetect-version }}_${{ inputs.archetect-os }}.tar.gz 2>/dev/null
         tar -xvzf ./archetect_${{ inputs.archetect-version }}_${{ inputs.archetect-os }}.tar.gz
         mv ./archetect_${{ inputs.archetect-version }}_${{ inputs.archetect-os }}/archetect .
+        ls -al
       shell: bash
     - id: archetect-render
       run: |
-        echo "Rendering..."
         set -x
-        archetect render ${{ inputs.source }} ${{ inputs.options }} -- ${{ inputs.destination }}
+        ls -al
+        echo "Rendering..."
+        ./archetect render ${{ inputs.source }} ${{ inputs.options }} -- ${{ inputs.destination }}
       shell: bash
