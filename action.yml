@@ -8,7 +8,7 @@ inputs:
   archetect-os:
     description: The OS for the compiled Archetect binary [linux-x64, windows-x64, osx-x64]
     required: false
-    default: linux-x64
+    default: "linux-x64"
   source:
     description: The source directory containing archetype.yml
     required: false
