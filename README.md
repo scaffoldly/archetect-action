@@ -4,7 +4,7 @@
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/scaffoldly/archetect-render-action)
 ![Archetect Version](https://img.shields.io/badge/tf-%3E%3D0.6.1-blue.svg)
 
-This action runs an (Archetect)[https://github.com/archetect/archetect] `render`
+This action runs an [Archetect](https://github.com/archetect/archetect) `render`
 command using template files contained in `source` and outputs to `destination`
 
 ## Inputs
