@@ -9,9 +9,9 @@ command using template files contained in `source` and outputs to `destination`
 
 ## Inputs
 
-### `source` (_Optional_)
+### `source` (**Required**)
 
-The source directory containing `archetype.yml`
+The source directory or Git repo containing an `archetype.yml`
 
 **Default**: `.archetect`
 
