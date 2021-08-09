@@ -1,4 +1,4 @@
-# archetect-render-action GitHub Action
+# `archetect render` GitHub Action
 
 [![Maintained by Scaffoldly](https://img.shields.io/badge/maintained%20by-scaffoldly-blueviolet)](https://github.com/scaffoldly)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/scaffoldly/archetect-render-action)
