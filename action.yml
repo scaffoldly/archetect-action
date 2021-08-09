@@ -1,5 +1,8 @@
 name: "Archetect Render Action"
 description: "GitHub Action to render using Archetect https://github.com/archetect/archetect"
+branding:
+  icon: "activity"
+  color: "blue"
 inputs:
   archetect-version:
     description: The Archetect version (https://github.com/archetect/archetect/releases)
