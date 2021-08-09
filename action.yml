@@ -10,9 +10,8 @@ inputs:
     required: false
     default: "linux-x64"
   source:
-    description: The source directory containing archetype.yml
-    required: false
-    default: ".archetect"
+    description: The source directory or Git repo containing an archetype.yml
+    required: true
   destination:
     description: The destination of the rendered output
     required: false
