@@ -14,7 +14,7 @@ a Git repository (e.g. `https://github.com/scaffoldly/archetype-scaffoldly-boots
 
 ### `source` (**Required**)
 
-The source directory or Git repo containing an `archetect.yml`
+The source directory or Git repo containing an `archetype.yml`
 
 ### `destination` (_Optional_)
 
