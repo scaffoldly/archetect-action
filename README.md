@@ -5,13 +5,16 @@
 ![Archetect Version](https://img.shields.io/badge/archetect-%3E%3D0.6.1-blue.svg)
 
 This action runs an [Archetect](https://github.com/archetect/archetect) `render`
-command using template files contained in `source` and outputs to `destination`
+command using template files contained in `source` and outputs to `destination`.
+
+`source` can be a directory relative to where the action is running or a URL to
+a Git repository (e.g. `https://github.com/scaffoldly/archetype-scaffoldly-bootstrap.git`).
 
 ## Inputs
 
 ### `source` (**Required**)
 
-The source directory or Git repo containing an `archetype.yml`
+The source directory or Git repo containing an `archetect.yml`
 
 ### `destination` (_Optional_)
 
@@ -73,7 +76,8 @@ Run a `archetect render` and provide answers as `options`:
 - uses: actions/checkout@v2
 - uses: scaffoldly/archetect-render-action@v1
   with:
-    options: "-a author=Christian -a email=christian@example.com"
+    source: "https://github.com/scaffoldly/archetype-scaffoldly-bootstrap.git"
+    options: "-a nonlive_domain=myproject.dev -a live_domain=myproject.com"
 ```
 
 Run a `archetect render` and provide an answers file:
@@ -82,5 +86,6 @@ Run a `archetect render` and provide an answers file:
 - uses: actions/checkout@v2
 - uses: scaffoldly/archetect-render-action@v1
   with:
-    options: "-A ./archetect/default-answers.yml"
+    source: "https://github.com/scaffoldly/archetype-scaffoldly-bootstrap.git"
+    options: "-A ./path/to/answers.yml"
 ```
