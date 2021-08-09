@@ -26,7 +26,7 @@ The destination of the rendered output
 
 Additional command-line options for the archetect command (e.g. `-a`, `-A`, `-s`)
 
-From `archetect render --help`
+From `archetect render --help`:
 
 ```
 FLAGS:
