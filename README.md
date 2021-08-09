@@ -13,8 +13,6 @@ command using template files contained in `source` and outputs to `destination`
 
 The source directory or Git repo containing an `archetype.yml`
 
-**Default**: `.archetect`
-
 ### `destination` (_Optional_)
 
 The destination of the rendered output
@@ -60,6 +58,8 @@ OPTIONS:
     -s, --switch <switches>...
             Enable switches that may trigger functionality within Archetypes
 ```
+
+**Default**: `` (empty string)
 
 ## Outputs
 
