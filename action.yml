@@ -18,11 +18,15 @@ inputs:
   destination:
     description: The destination of the rendered output
     required: false
-    default: "." 
+    default: "."
   options:
     description: Additional command-line options for the archetect command (e.g. -a, -A, -s)
     required: false
     default: ""
+  commit:
+    description: If set, changes will be committed back into the repository
+    required: false
+    default: "true"
 runs:
   using: "composite"
   steps:
@@ -39,4 +43,8 @@ runs:
       run: |
         echo "Rendering... [Source: ${{ inputs.source }}, Destination: ${{ inputs.destination }}, Options: ${{ inputs.options }}]"
         ${{ runner.temp }}/archetect render ${{ inputs.source }} --verbose ${{ inputs.options }} -- ${{ inputs.destination }}
+      shell: bash
+    - id: commit
+      run: |
+        if [ "${{ inputs.commit }}" -eq "true" ]; then git add . && git commit -m "🤖 Render Template: ${{ inputs.source }}" && git push; else echo "Skipping commit"; fi
       shell: bash

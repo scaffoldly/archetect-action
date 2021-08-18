@@ -64,6 +64,12 @@ OPTIONS:
 
 **Default**: `` (empty string)
 
+### `commit` (_Optional_)
+
+If set, changes will be committed back into the repository
+
+**Default**: `"true"`
+
 ## Outputs
 
 This action has no outputs
