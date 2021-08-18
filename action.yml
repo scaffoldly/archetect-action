@@ -46,5 +46,5 @@ runs:
       shell: bash
     - id: commit
       run: |
-        if [ "${{ inputs.commit }}" -eq "true" ]; then git add . && git commit -m "🤖 Render Template: ${{ inputs.source }}" && git push; else echo "Skipping commit"; fi
+        if [ "${{ inputs.commit }}" -eq "true" ]; then git add . && git commit -m "🤖 Template Rendering\n\n${{ inputs.source }}" && git push; else echo "Skipping commit"; fi
       shell: bash
