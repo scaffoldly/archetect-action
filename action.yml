@@ -48,13 +48,10 @@ runs:
         ${{ runner.temp }}/archetect render ${{ inputs.source }} --verbose ${{ inputs.options }} -- ${{ inputs.destination }}
       shell: bash
     - id: commit
-      env:
-        GITHUB_TOKEN: ${{ inputs.github-token }}
       run: |
         set -x
         git config --global user.email "actions@users.noreply.github.com"
         git config --global user.name "GitHub Actions"
+        if [ ! -z "${{ inputs.github-token }}" ]; then git remote set-url origin "$(git remote get-url origin | sed 's/github.com/${{ inputs.github-token }}@github.com/g')"; else echo "Skipping set of a custom GitHub token"; fi
         if [ "${{ inputs.commit }}" = "true" ]; then git add . && git commit -m "🤖 Template Rendering" -m "Source: ${{ inputs.source }}" && git push; else echo "Skipping commit"; fi
       shell: bash
-
-# if [ ! -z "${{ inputs.github-token }}" ]; then git remote set-url origin "$(git remote get-url origin | sed 's/github.com/${{ inputs.github-token }}@github.com/g')"; else echo "Skipping set of a custom GitHub token"; fi
