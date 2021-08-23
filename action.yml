@@ -12,6 +12,9 @@ inputs:
     description: The OS for the compiled Archetect binary [linux-x64, windows-x64, osx-x64]
     required: false
     default: "linux-x64"
+  github-token:
+    description: A GitHub token with `repo` and `workflow` permissions
+    required: false
   source:
     description: The source directory or Git repo containing an archetype.yml
     required: true
@@ -46,7 +49,9 @@ runs:
       shell: bash
     - id: commit
       run: |
-        git config --global user.email "github-action@users.noreply.github.com"
-        git config --global user.name "GitHub Action"
+        set -x
+        git config --global user.email "actions@users.noreply.github.com"
+        git config --global user.name "GitHub Actions"
+        if [ ! -z "${{ inputs.github-token }}" ]; git remote set-url origin "https://${{ inputs.github-token }}:@github.com/${{ github.GITHUB_REPOSITORY }}"; else echo "Skipping set of a custom GitHub token"; fi
         if [ "${{ inputs.commit }}" = "true" ]; then git add . && git commit -m "🤖 Template Rendering" -m "Source: ${{ inputs.source }}" && git push; else echo "Skipping commit"; fi
       shell: bash
