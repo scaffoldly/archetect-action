@@ -22,14 +22,6 @@ The destination of the rendered output
 
 **Default**: `.`
 
-### `github-token` (_Optional_)
-
-A GitHub token with `repo` and `workflow` permissions
-
-_Note_: Useful if Archetect is rendering `.github/workflow` files
-
-**Default**: The GitHub token provided by the GitHub Workflow
-
 ### `options` (_Optional_)
 
 Additional command-line options for the archetect command (e.g. `-a`, `-A`, `-s`)
