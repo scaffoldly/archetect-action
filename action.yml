@@ -42,7 +42,9 @@ runs:
     - id: archetect-render
       run: |
         echo "Rendering... [Source: ${{ inputs.source }}, Destination: ${{ inputs.destination }}, Options: ${{ inputs.options }}]"
+        set -x
         ${{ runner.temp }}/archetect render ${{ inputs.source }} --verbose ${{ inputs.options }} -- ${{ inputs.destination }}
+        set +x
       shell: bash
     - id: commit
       run: |
