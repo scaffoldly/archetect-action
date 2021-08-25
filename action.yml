@@ -7,7 +7,7 @@ inputs:
   archetect-version:
     description: The Archetect version (https://github.com/archetect/archetect/releases)
     required: false
-    default: "v0.7.1"
+    default: "v0.7.2"
   archetect-os:
     description: The OS for the compiled Archetect binary [linux-x64, windows-x64, osx-x64]
     required: false
