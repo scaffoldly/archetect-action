@@ -16,11 +16,7 @@ a Git repository (e.g. `https://github.com/scaffoldly/archetype-scaffoldly-boots
 
 The source directory or Git repo containing an `archetype.yml`
 
-### `source-gitref` (**Optional**)
-
-A reference to a branch/sha/tag of the template
-
-**Default**: `main`
+Can also contain an optional Git Reference, e.g. `https://github.com/scaffoldly/archetype-scaffoldly-bootstrap.git#1.0.0`
 
 ### `destination` (_Optional_)
 

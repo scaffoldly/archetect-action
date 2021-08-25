@@ -7,7 +7,7 @@ inputs:
   archetect-version:
     description: The Archetect version (https://github.com/archetect/archetect/releases)
     required: false
-    default: "v0.7.0"
+    default: "v0.7.1"
   archetect-os:
     description: The OS for the compiled Archetect binary [linux-x64, windows-x64, osx-x64]
     required: false
@@ -15,10 +15,6 @@ inputs:
   source:
     description: The source directory or Git repo containing an archetype.yml
     required: true
-  source-gitref:
-    description: A reference to a branch/sha/tag of the template
-    required: false
-    default: "main"
   destination:
     description: The destination of the rendered output
     required: false
@@ -46,7 +42,7 @@ runs:
     - id: archetect-render
       run: |
         echo "Rendering... [Source: ${{ inputs.source }}, Destination: ${{ inputs.destination }}, Options: ${{ inputs.options }}]"
-        ${{ runner.temp }}/archetect render ${{ inputs.source }}#${{ inputs.source-ref }} --verbose ${{ inputs.options }} -- ${{ inputs.destination }}
+        ${{ runner.temp }}/archetect render ${{ inputs.source }} --headless --verbose ${{ inputs.options }} -- ${{ inputs.destination }}
       shell: bash
     - id: commit
       run: |
