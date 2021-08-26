@@ -7,7 +7,7 @@ inputs:
   archetect-version:
     description: The Archetect version (https://github.com/archetect/archetect/releases)
     required: false
-    default: "v0.7.0"
+    default: "v0.7.3"
   archetect-os:
     description: The OS for the compiled Archetect binary [linux-x64, windows-x64, osx-x64]
     required: false
@@ -43,7 +43,7 @@ runs:
       run: |
         echo "Rendering... [Source: ${{ inputs.source }}, Destination: ${{ inputs.destination }}, Options: ${{ inputs.options }}]"
         set -x
-        ${{ runner.temp }}/archetect render ${{ inputs.source }} --verbose ${{ inputs.options }} -- ${{ inputs.destination }}
+        ${{ runner.temp }}/archetect render ${{ inputs.source }} --verbose --headless ${{ inputs.options }} -- ${{ inputs.destination }}
         set +x
       shell: bash
     - id: commit
