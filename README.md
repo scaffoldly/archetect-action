@@ -72,6 +72,12 @@ If set, changes will be committed back into the repository
 
 **Default**: `"true"`
 
+### `post-render-command` (_Optional_)
+
+If set, a command to run post rendering (e.g. code formatting)
+
+**Default**: `""`
+
 ## Outputs
 
 This action has no outputs

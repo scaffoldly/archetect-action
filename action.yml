@@ -27,6 +27,10 @@ inputs:
     description: If set, changes will be committed back into the repository
     required: false
     default: "true"
+  post-render-command:
+    description: If set, a command to run post rendering (e.g. code formatting)
+    required: false
+    default: ""
 runs:
   using: "composite"
   steps:
@@ -43,6 +47,10 @@ runs:
       run: |
         echo "Rendering... [Source: ${{ inputs.source }}, Destination: ${{ inputs.destination }}, Options: ${{ inputs.options }}]"
         ${{ runner.temp }}/archetect render ${{ inputs.source }} --headless --verbose ${{ inputs.options }} -- ${{ inputs.destination }}
+      shell: bash
+    - id: post-render
+      run: |
+        if [ ! -z "${{ inputs.post-render-command }}" ]; then ${{ inputs.post-render-command }}; else echo "Skipping post render command"; fi
       shell: bash
     - id: commit
       run: |
